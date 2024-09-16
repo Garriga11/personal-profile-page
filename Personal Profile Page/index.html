@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta name = "viewport" content = "width = device-width , initial-scale = 1">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile Page</title>
+    <style>
+        body {
+            background-color: black;
+            padding: 50px;
+            font-family: 'Courier New', Courier, monospace;
+            color: white
+        }
+        
+        .contact-info {
+            background-color: aliceblue;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 25 25 25 25;
+            font-weight: bold;
+            color: black;
+        }
+        .info-item{
+            margin:10px;
+            display: flex;;
+            justify-content: space-evenly;
+        }
+
+        .label{
+            font-weight: bold;
+        }
+
+      .slider{
+      position: relative;
+      width: 50%; 
+      margin: auto;
+      overflow: hidden;
+    }
+    .slider img{
+      width: 100%;
+      display: none;
+    }
+    img.displaySlide{
+      display: block;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    .slider button{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      padding: 10px 15px;
+      background-color: hsla(0, 0%, 0%, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .prev{
+      left: 0;
+    }
+    .next{
+      right: 0;
+    }
+    @keyframes fade {
+      from {opacity: .5}
+      to {opacity: 1}
+    }
+    .container {
+        padding: 25px;
+        background-color: black;
+        column-width: auto;
+        column-count: 3;
+        column-gap: 40px;
+        column-rule: 4px dotted rgb(79 185 227);
+}
+        
+
+.card {
+  background-color: rgb(9, 8, 8);
+  margin: 0 0 1em 0;
+  color:wheat;
+}
+
+.hobbies {
+    display: flex; 
+    flex-direction: row;
+    padding: 50px;
+    gap: 50px;
+}
+
+figure{
+    float:right;
+}
+figcaption{
+    padding: 20px;
+}
+footer {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+</style>
+
+
+<body>
+
+    <h2>Ashley Garriga</h2>
+        <div class = "contact-info">
+        <div class = "info-item">
+            <span class = "label"><b>Phone:</b></span>
+            662-418-9735</div>
+            <div class = "contact-info">
+            <div class = "info-item">
+            <span class = "label"><b>Github:</b></span>
+            Garriga11/github.com</div>
+                
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="slider">
+    <div class="slides">
+         <img class="slide" src="images\christmas.jpg" alt = "christmas">
+        <img class="slide" src="images\hand.JPG" alt = "hand">
+        <img class="slide" src=" images\muw.jpg" alt="muw">
+        <img class="slide" src="images\logo.png" alt="logo">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094</button>
+    <button class="next" onclick="nextSlide()">&#10095</button>
+</div>
+<script>
+const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalId = null;
+
+document.addEventListener("DOMContentLoaded", initializeSlider);
+
+function initializeSlider(){
+    if(slides.length > 0){
+        slides[slideIndex].classList.add("displaySlide");
+        intervalId = setInterval(nextSlide, 5000);
+    }
+}
+
+function showSlide(index){
+    if(index >= slides.length){
+        slideIndex = 0;
+    }
+    else if(index < 0){
+        slideIndex = slides.length - 1;
+    }
+
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide");
+    });
+    slides[slideIndex].classList.add("displaySlide");
+}
+
+function prevSlide(){
+    clearInterval(intervalId);
+    slideIndex--;
+    showSlide(slideIndex);
+}
+
+function nextSlide(){
+    slideIndex++;
+    showSlide(slideIndex);
+}
+</script>
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<h3>Introduction</h3>
+<div class = "container">
+    <div  class = "card">
+
+    <p> I am a graduate of Mississippi University For Women with a B.S. degree. Currently, 
+        I am Vision Plus Tech, and  program, install, and intergrate Pedestrian Tracking Systems for 
+        industrial forklifts. On the weekends, I volunteer my time as Duty Officer for 
+        The American Red Cross. While on duty, I verify disaster events and deploy 
+        Disaster Action Teams to deliver resources to those in need of services.</p>
+    </div>
+
+</div>
+</div>
+<h3>Hobbies</h3>
+<div class = "hobbies">
+<div><img  id = "barnPainting" src = "images\barnPainting.jpg" width="200" height="200"></div>
+<ul>
+    <li>Art</li>
+    <li>Reading & Writing</li>
+    <li>Mountain Biking</li>
+    <li>Movies</li>
+</ul>
+<div><img id = "hand" src = "images\hand.JPG" width="200" height="200"></div>
+</div>
+</div>
+
+<footer>   
+    
+    <img src = "images\logo.png" width="100" height="100">
+                <figure>
+                <figcaption>&copy; Ashley Garriga</figcaption>
+   
+   
+                </figure>
+    
+    
+    
+            
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
